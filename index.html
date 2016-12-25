@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+<!--<script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>-->
+<script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"  href="node_modules/angular-xeditable/dist/css/xeditable.css"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
+	<title></title>
+</head>
+<body ng-app='collectify'>
+
+<nav class="navbar navbar-dark bg-primary">
+ <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand bg-primary" >Ophtalmo_Daily</a>
+    </div>
+    <ul class="nav navbar-nav ">
+      <li class="active"><a class="bg-primary" href="#/">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle bg-primary" data-toggle="dropdown" href="#">Gestion des utilisateurs 
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ajout utlisateur</a></li>
+          <li><a href="#">Supprimer utilisateur</a></li>
+          <li><a href="#">Consulter les utilisateurs</a></li>
+        </ul>
+      </li>
+       <li class="dropdown"> <a class="dropdown-toggle bg-primary" data-toggle="dropdown" href="#">Gestion des adresses
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="city">Ajout adresse</a></li>
+          <li><a href="#/index">Supression d'addresse</a></li>
+          <li><a href="#">Consultation des addresses</a></li>
+        </ul>
+        </li>
+      <li class="dropdown"> <a class="dropdown-toggle bg-primary" data-toggle="dropdown" href="#">Facturation
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Facturation par moi</a></li>
+          <li><a href="#">Facturation par semaine</a></li>
+          <li><a href="#">Facturation par jour</a></li>
+        </ul>
+        </li>
+    </ul>
+ </div>
+</nav>
+<ng-view></ng-view>
+<div ui-view></div>
+
+
+<script type="text/javascript" src="node_modules/angular-xeditable/dist/js/xeditable.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<!--routing-->
+<script type="text/javascript" src="src/router/routing.js"></script>
+<!--Controllers-->
+<script type="text/javascript" src="src/controllers/cityController.js"></script>
+</body>
+</html>

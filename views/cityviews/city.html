@@ -1,0 +1,56 @@
+<!--<form class="form-inline" ng-submit="addCity()" ng-Controller="addCityController" >
+  <div class="form-group  col-xs-6 col-md-offset-4">
+    <label class='text-primary'>Le nom Cité: </label>
+    <input type="input" class="form-control "  placeholder="nom cité">
+    <button type="submit" class="btn btn-primary ">Enregistrer</button>
+  </div>
+  
+  
+</form>
+-->
+
+<div class="container spacer" >
+	<div class="panel panel-primary">
+		<div class="panel-heading text-primary">
+			<h3>Ajout du nom cité </h3>
+		</div>
+		<div class="panel-body">
+			<form>
+			<div class="form-inline">
+			<label class="control-label text-primary"><h4>Le nom cité :</h4></label>
+			<input type="text" class="form-control" ng-model="city._cityName">
+			<button ng-click="saveCity()" class="btn btn-primary ">Enregistrer</button>
+			</div>
+			</form>
+		</div>
+		<div class="panel-body" ng-model="myVar">
+			<form>
+				<div class="form-inline">
+			<label class="control-label text-primary"><h4>Recherche :</h4></label>	
+			<input type="text" class="form-control"  placeholder="chercher cité" ng-model="city._cityFilter">
+			<button class="btn btn-default btn-primary" type="button" ng-click="searchCity()" data-toggle="collapse" data-target="#collapseCityTable" >GO!</button>
+			</div>
+			</form>
+		</div>
+		<div class="panel-body panel-collapse collapse" id="collapseCityTable" >
+			<table class="table table-reflow" ng-show="myVar">
+				<thead>
+					<tr>
+						<th class="text-primary">Nom de cité</th><th class="text-primary">Supprimer</th><th class="text-primary">Modifier</th> 
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="singleCity in cityFilter"   >
+						<div ng-show="myHiddenComposit">
+						<td ><a href="#" editable-text="singleCity._cityName">{{singleCity._cityName}}</a></td>
+						<td><button class="btn btn-default btn-danger" type="button" ng-click="deleteCity(singleCity)" >Supprimer</button></td>
+						<td><button class="btn btn-default btn-warining" type="button" ng-click="updateCity(singleCity)" >Modifier</button></td>
+					</div>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
