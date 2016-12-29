@@ -1,0 +1,106 @@
+<div class="container spacer">
+	<div class="panel-group">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h4 class="panel-titel">Gérer le staff médical</h4>
+		</div>
+		<div class="panel-body">
+		<span>
+		<form class="form-horizontal" data-toggle="validator" role="form" name="myForm">
+			<div class="form-group">
+				<div class="form-inline  col-xs-6"  >
+				<label class="control-label text-primary control-label col-xs-4" for="inputCIN"><h4 class="text-left">CIN :</h4></label>
+				<input type="number" class="form-control " ng-model="personnel._cin" id="inputCIN" placeholder="CIN"  data-minlength="8"  required>
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-inline col-xs-6 ">
+				<label class="control-label text-primary control-label col-xs-4"><h4 class="text-left">Nom :</h4></label>
+				<input type="text" class="form-control" ng-model="personnel._name" placeholder="Nom du personnel" required data-error="veuillez saisir le Nom de personnne">
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-inline col-xs-6">
+				<label class="control-label text-primary control-label col-xs-4"><h4 class="text-left">Prénom :</h4></label>
+				<input type="text" class="form-control " ng-model="personnel._lastName" placeholder="Prénom" required data-error="veuillez saisir le Prénom">
+				<div class="help-block with-errors"></div>
+				</div>
+				
+			</div>
+			<div class="form-group">
+				<div class="form-inline col-xs-6">
+				<label class="control-label text-primary control-label col-xs-4"><h4 class="text-left">Profile :</h4></label>
+				<label class="radio-inline"><input type="radio" name="Profile" value="docteur" ng-model="personnel._profile" required>Docteur</label>
+				<label class="radio-inline"><input type="radio" name="Profile" value="staff" ng-model="personnel._profile" required>Staff médical</label>
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="form-group">	
+				<div class="form-inline col-xs-6">
+				<label class="control-label text-primary control-label col-xs-4"><h4 class="text-left">Login :</h4></label>
+				<input type="text" class="form-control" ng-model="personnel.login" placeholder="Login " required data-error="veuillez saisir le login">
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-inline col-xs-6">
+				<label class="control-label text-primary control-label col-xs-4"><h4 class="text-left">Mot de passe :</h4></label>
+				<input type="password" class="form-control" id="inputPassword" ng-model="personnel.password" placeholder="Mot de passe" required ">
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-inline  col-xs-6">
+				<label class="control-label text-primary control-label  col-xs-4"><h4 class="text-left">Confirmation:</h4></label>
+				<input type="password" class="form-control " ng-model="personnel.confirmPassword" placeholder="Confirmation de mot de passe" required data-match="#inputPassword" data-match-error="Le mot de passe ne correspond pas" >
+				<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-inline col-xs-6">
+				<button type="submit" ng-disabled="myForm.$invalid" ng-click="savePerson()" class="btn btn-primary ">Enregistrer</button>
+				</div>
+			</div>	
+		</form>
+		</div>
+		<div class="panel-body">
+			<form>
+				<div class="form-group">
+      				<div class="input-group col-xs-4">
+      				  <div class="input-group-addon"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></div>
+        				<input type="text" class="form-control" placeholder="Recherche" ng-model="personnel._personnelFilter">
+      				</div>      
+    			</div>
+    		</form>
+				<span>
+					<table class="table table-reflow">
+						<thead>
+							<tr>
+								<th class="text-primary">le num de CIN</th><th class="text-primary">Nom</th><th class="text-primary">Prénom</th><th class="text-primary">Profile</th><th class="text-primary">Login</th><th class="text-primary">Password</th><th class="text-primary">Supprimer</th><th class="text-primary">Modifier</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr  ng-repeat="singleStaff in personnelFlash | filter:personnel._personnelFilter">
+								<td><a href="#" editable-text="singleStaff._cin">{{singleStaff._cin}}</a></td>
+								<td><a href="#" editable-text="singleStaff._name">{{singleStaff._name}}</a></td>
+								<td><a href="#" editable-text="singleStaff._lastName">{{singleStaff._lastName}}</a></td>
+								<td><a href="#" editable-text="singleStaff._profile">{{singleStaff._profile}}</a></td>
+								<td><a href="#" editable-text="singleStaff.login">{{singleStaff.login}}</a></td>
+								<td><a href="#" editable-text="singleStaff.password">{{singleStaff.password}}</a></td>
+								<td><button class="btn btn-default btn-danger" type="button" ng-click="deletePerson(singlePersonnel)" >Supprimer</button></td>
+						<td><button class="btn btn-default btn-warining" type="button" ng-click="updatePerson(singlePersonnel)" >Modifier</button></td>
+							</tr>
+						</tbody>
+
+						
+					</table>
+				</span>
+					
+			
+		</div>
+	</div>	
+	</div>
+</div>

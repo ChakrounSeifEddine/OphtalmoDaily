@@ -1,0 +1,69 @@
+
+<div class="container spacer">
+<div class="panel-group" id="accordionGroup">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h4 class="panel-titel">Gérer les consultations</h4>
+		</div>
+		<div class="panel-body">
+		<form>
+			<div class="form-inline">
+			<label class="control-label text-primary"><h4>Type de consultation :</h4></label>
+			<input type="text" class="form-control" ng-model="consultation._typeOfConsultation">
+			<button ng-click="saveConsultation()" class="btn btn-primary ">Enregistrer</button>
+			</div>
+		</form>
+		</div>
+		<div class="panel-body">
+			<form>
+			<div class="form-inline">
+			<label class="control-label text-primary"><h4>Recherche :</h4></label>	
+			<input type="text" class="form-control"  placeholder="chercher consultation" ng-model="consultation._consultationFilter">
+			<button class="btn btn-default btn-primary" type="button" ng-click="searchConsultation()" data-toggle="collapse" data-parent="#accordionGroup" data-target="#collapseConsultationTable" >GO!</button>
+			<button class="btn btn-default btn-primary" type="button" ng-click="searchAllConsultation()" data-toggle="collapse" data-target="#collapseAllConsultationTable" data-parent="#accordionGroup" >Afficher tous les consultations</button>
+			</div>
+			</form>
+		</div>
+		<div id="collapseConsultationTable" class="panel-collapse collapse in">
+			 <div class="panel-body">
+                   <table class="table table-reflow" ng-show="myVar">
+				<thead>
+					<tr>
+						<th class="text-primary">Type de consultation</th><th class="text-primary">Supprimer</th><th class="text-primary">Modifier</th> 
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="singleConsultation in consultationFilter"   >
+						<div ng-show="myHiddenComposit">
+						<td ><a href="#" editable-text="singleConsultation._typeOfConsultation">{{singleConsultation._typeOfConsultation}}</a></td>
+						<td><button class="btn btn-default btn-danger" type="button" ng-click="deleteConsultation(singleConsultation)" >Supprimer</button></td>
+						<td><button class="btn btn-default btn-warining" type="button" ng-click="updateConsultation(singleConsultation)" >Modifier</button></td>
+					</div>
+					</tr>
+				</tbody>
+			</table>
+                </div>
+		</div>
+		<div id="collapseAllConsultationTable" class="panel-collapse collapse">
+			 <div class="panel-body">
+                   <table class="table table-reflow" ng-show="myAllVar">
+				<thead>
+					<tr>
+						<th class="text-primary">Type de consultation</th><th class="text-primary">Supprimer</th><th class="text-primary">Modifier</th> 
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="singleConsultation in consultationFlash"   >
+						<div ng-show="myHiddenAllComposit">
+						<td ><a href="#" editable-text="singleConsultation._typeOfConsultation">{{singleConsultation._typeOfConsultation}}</a></td>
+						<td><button class="btn btn-default btn-danger" type="button" ng-click="deleteConsultation(singleConsultation)" >Supprimer</button></td>
+						<td><button class="btn btn-default btn-warining" type="button" ng-click="updateConsultation(singleConsultation)" >Modifier</button></td>
+					</div>
+					</tr>
+				</tbody>
+			</table>
+            </div>
+		</div>
+	</div>
+</div>
+</div>
